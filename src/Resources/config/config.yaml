@@ -1,6 +1,7 @@
 imports:
     - { resource: 'app/doctrine_migrations.yaml' }
     - { resource: 'sylius/resource.yaml' }
+    - { resource: 'app/twig_hooks/product_option/form.yaml' }
 
 liip_imagine:
     filter_sets:

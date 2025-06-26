@@ -1,0 +1,6 @@
+sylius_twig_hooks:
+    hooks:
+        'sylius_admin.common.update':
+            monsieurbiz.sylius_advanced_option_plugin.product_option.form_theme:
+                template: "@MonsieurBizSyliusAdvancedOptionPlugin/Form/theme.html.twig"
+                priority: 999

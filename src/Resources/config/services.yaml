@@ -29,3 +29,7 @@ services:
     MonsieurBiz\SyliusAdvancedOptionPlugin\Source\RendererSource:
         arguments:
             - '%monsieurbiz.advanced_option.config.renderers%'
+
+    MonsieurBiz\SyliusAdvancedOptionPlugin\Form\Extension\ProductOptionTypeExtension:
+        tags:
+            - { name: form.type_extension, extended_type: Sylius\Bundle\ProductBundle\Form\Type\ProductOptionType }
