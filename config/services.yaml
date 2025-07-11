@@ -5,11 +5,11 @@ services:
         public: false
 
     MonsieurBiz\SyliusAdvancedOptionPlugin\:
-        resource: '../../*'
-        exclude: '../../{Entity,Migrations}'
+        resource: '../src/*'
+        exclude: '../src/{Entity,Migrations}'
 
     MonsieurBiz\SyliusAdvancedOptionPlugin\Controller\:
-        resource: '../../Controller'
+        resource: '../src/Controller'
         tags: ['controller.service_arguments']
 
 
