@@ -28,7 +28,7 @@ final class MonsieurBizSyliusAdvancedOptionExtension extends Extension
         $config = $this->processConfiguration($this->getConfiguration([], $container), $config);
         $container->setParameter('monsieurbiz.advanced_option.config.renderers', $config['renderers']);
 
-        $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+        $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../../config'));
         $loader->load('services.yaml');
     }
 
@@ -37,6 +37,6 @@ final class MonsieurBizSyliusAdvancedOptionExtension extends Extension
      */
     public function getAlias(): string
     {
-        return str_replace('monsieur_biz', 'monsieurbiz', parent::getAlias());
+        return 'monsieur_biz_sylius_advanced_option';
     }
 }
