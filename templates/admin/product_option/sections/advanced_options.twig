@@ -1,0 +1,11 @@
+{% set form = hookable_metadata.context.form %}
+{% form_theme form '@MonsieurBizSyliusAdvancedOptionPlugin/Form/theme.html.twig' %}
+
+<div class="card mb-3" >
+    <div class="card-header">
+        <div class="card-title">{{ 'monsieurbiz_advanced_option.ui.rendering'|trans }}</div>
+    </div>
+    <div class="card-body" >
+        {{ form_row(form.renderer) }}
+    </div>
+</div>
