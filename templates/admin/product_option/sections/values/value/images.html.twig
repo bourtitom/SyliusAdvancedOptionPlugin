@@ -1,0 +1,82 @@
+{% set form = hookable_metadata.context.form %}
+{% form_theme form '@MonsieurBizSyliusAdvancedOptionPlugin/Form/theme.html.twig' %}
+
+{% if form.images is defined %}
+    {% set value_id = form.vars.full_name|split('[values][')[1]|split(']')[0] %}
+    <div class="col-12 mb-3">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h6 class="card-title mb-0">Images</h6>
+                <button type="button" class="btn btn-outline-primary btn add-image-btn" 
+                        data-value-id="{{ value_id }}"
+                        data-collection-holder="images-container-{{ value_id }}">
+                    {{ 'monsieurbiz_advanced_option.ui.add_image'|trans }}
+                </button>
+            </div>
+            <div class="card-body">
+                <div id="images-container-{{ value_id }}" data-index="{{ form.images|length }}">
+                    {% for imageForm in form.images %}
+                        <div class="image-item border p-3 mb-3 position-relative">
+                            <button type="button" class="btn btn-sm btn-outline-danger position-absolute top-0 end-0 m-2 remove-image-btn">
+                                X
+                            </button>
+                            <div>
+                                {{ form_widget(imageForm) }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                
+                <div id="prototype-{{ value_id }}" style="display: none;">
+                    <div class="image-item border p-3 mb-3 position-relative">
+                        <button type="button" class="btn btn-sm btn-outline-danger position-absolute top-0 end-0 m-2 remove-image-btn">
+                            X
+                        </button>
+                        {{ form_widget(form.images.vars.prototype)|raw }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% if not app.request.attributes.get('_sylius_advanced_option_js_loaded') %}
+    {% do app.request.attributes.set('_sylius_advanced_option_js_loaded', true) %}
+    <script>
+        document.addEventListener('click', function (event) {
+            const addBtn = event.target.closest('.add-image-btn');
+            if (addBtn) {
+                event.preventDefault();
+                
+                const valueId = addBtn.dataset.valueId;
+                const collectionHolderId = addBtn.dataset.collectionHolder;
+                const holder = document.getElementById(collectionHolderId);
+                const prototype = document.getElementById('prototype-' + valueId);
+                
+                if (!holder || !prototype) return;
+
+                let index = parseInt(holder.dataset.index) || 0;
+                const newElement = prototype.firstElementChild.cloneNode(true);
+
+                newElement.querySelectorAll('input, select, textarea').forEach(input => {
+                    if (input.name) input.name = input.name.replace(/__image__/g, index);
+                    if (input.id) input.id = input.id.replace(/__image__/g, index);
+                });
+
+                newElement.querySelectorAll('label').forEach(label => {
+                    if (label.htmlFor) label.htmlFor = label.htmlFor.replace(/__image__/g, index);
+                });
+
+                holder.appendChild(newElement);
+                holder.dataset.index = index + 1;
+            }
+
+            const removeBtn = event.target.closest('.remove-image-btn');
+            if (removeBtn) {
+                event.preventDefault();
+                const item = removeBtn.closest('.image-item');
+                if (item) item.remove();
+            }
+        });
+    </script>
+{% endif %}
+{% endif %}

@@ -5,3 +5,5 @@ monsieurbiz_advanced_option:
         images: 'Images'
         renderers:
             small_images: 'Petites images'
+        add_image: 'Ajouter une image'
+            
