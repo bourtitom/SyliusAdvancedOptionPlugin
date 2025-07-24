@@ -15,3 +15,7 @@ monsieur_biz_sylius_advanced_option:
         small_images:
             label: 'monsieurbiz_advanced_option.ui.renderers.small_images'
             template: '@MonsieurBizSyliusAdvancedOptionPlugin/Renderer/small_images.html.twig'
+twig:
+    form_themes: 
+        - '@SyliusAdmin/shared/form_theme.html.twig'
+        - '@MonsieurBizSyliusAdvancedOptionPlugin/Form/theme.html.twig'

@@ -2,17 +2,13 @@ sylius_twig_hooks:
   hooks:
     sylius_admin.product_option.update.content.form.sections:
       test_hook:
-        template: '@MonsieurBizSyliusAdvancedOptionPlugin/admin/product_option/sections/advanced_options.twig'
+        template: '@MonsieurBizSyliusAdvancedOptionPlugin/admin/product_option/sections/advanced_options.html.twig'
         priority: 100
-    # sylius_shop.product.show.content.info.summary.add_to_cart.options:
-    #   custom_options:
-    #     template: '@MonsieurBizSyliusAdvancedOptionPlugin/shop/product/show/options.html.twig'
-    #     priority: 100
-    #     context:
-    #       option_form: option_form
     sylius_admin.product_option.update.content.form.sections.values.value:
       images_value:
-        template: '@MonsieurBizSyliusAdvancedOptionPlugin/admin/product_option/form/sections/values/value/test_image.html.twig'
+        template: '@MonsieurBizSyliusAdvancedOptionPlugin/admin/product_option/sections/values/value/images.html.twig'
+        priority: 50
+    'sylius_shop.product.show.content.info.summary.add_to_cart.options':
+      'list':
+        template: '@MonsieurBizSyliusAdvancedOptionPlugin/shop/product/show/content/info/summary/add_to_cart/options/list.html.twig'
         priority: 100
-        context:
-          option_value_form: option_value_form
