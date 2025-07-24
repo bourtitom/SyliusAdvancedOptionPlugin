@@ -13,9 +13,9 @@ This plugins improves the Options in Sylius. It adds the possibility to select a
 
 | Sylius Version | PHP Version     |
 |----------------|-----------------|
-| 1.12           | 8.1 - 8.2 - 8.3 |
-| 1.13           | 8.1 - 8.2 - 8.3 |
-| 1.14           | 8.1 - 8.2 - 8.3 |
+| 2.0            | 8.2 - 8.3       |
+
+ℹ️ For Sylius 1.x compatibility, see our [1.x branch](https://github.com/monsieurbiz/SyliusAdvancedOptionPlugin/tree/1.x) and all 1.x releases.
 
 ## Installation
 
@@ -43,14 +43,14 @@ Then create the config file in `config/packages/monsieurbiz_sylius_advanced_opti
 
 ```yaml
 imports:
-    - { resource: "@MonsieurBizSyliusAdvancedOptionPlugin/Resources/config/config.yaml" }
+    - { resource: "@MonsieurBizSyliusAdvancedOptionPlugin/config/config.yaml" }
 ```
 
 And create the route file in `config/routes/monsieurbiz_sylius_advanced_option_plugin.yaml`:
 
 ```yaml
 monsieurbiz_advanced_option_admin:
-    resource: "@MonsieurBizSyliusAdvancedOptionPlugin/Resources/config/routing/admin.yaml"
+    resource: "@MonsieurBizSyliusAdvancedOptionPlugin/config/routing/admin.yaml"
     prefix: /%sylius_admin.path_name%
 ```
 
