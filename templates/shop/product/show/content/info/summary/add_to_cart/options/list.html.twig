@@ -1,0 +1,9 @@
+{% for option_form in hookable_metadata.context.form.cartItem.variant %}
+    {% set option = option_form.vars.choices is not empty ? option_form.vars.choices[0].data.option : null %}
+    
+    {% if option and option.renderer == 'small_images' %}
+        <span>small_image rendering</span>
+    {% else %}
+        {{ form_row(option_form, { 'attr': { 'data-option': option_form.vars.name } }) }}
+    {% endif %}
+{% endfor %}
