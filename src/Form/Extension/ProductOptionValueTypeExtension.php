@@ -37,7 +37,7 @@ final class ProductOptionValueTypeExtension extends AbstractTypeExtension
                 'by_reference' => false,
                 'entry_type' => ProductOptionValueImageType::class,
                 'attr' => [
-                    'class' => 'ui segment secondary collection--flex',
+                    'class' => 'collection-container',
                 ],
             ])
         ;
