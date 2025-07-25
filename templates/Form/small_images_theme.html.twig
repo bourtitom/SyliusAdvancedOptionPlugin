@@ -1,11 +1,8 @@
-{# {% extends '@MonsieurBizSyliusAdvancedOptionPlugin/Form/theme.html.twig' %} #}
-
 {% block choice_row -%}
     <div class="{% if required %}required {% endif %}field{% if (not compound or force_error|default(false)) and not valid %} error{% endif %}">
         {{- form_label(form) -}}
         <div style="display: none;">
-            {% set attr = attr|merge({'class': attr.class|default ~ ' ui dropdown'}) %}
-            {{- form_widget(form, {'attr': attr}) -}}
+            {{- form_widget(form) -}}
         </div>
 
         <div class="field">
@@ -18,21 +15,40 @@
                     {% set path = '//via.placeholder.com/32x32?text=' ~ choice.label %}
                 {% endif %}
 
-                <label style="display: inline-block;">
-                    <input
-                        type="radio"
-                        name="value__{{ form.vars.full_name }}"
-                        value="{{ choice.value }}"
-                        data-option="{{ form.vars.name }}"
-                        data-target="{{ form.vars.id }}"
-                        onchange="javascript:document.getElementById(this.dataset.target).value = this.value;"
-                        {% if choice.value == form.vars.value %}checked="checked"{% endif %}
-                    />
-                    <img src="{{ path }}" alt="{{ choice.label }}" />
+                <label style="display: inline-block; cursor: pointer; margin-right: 10px; padding: 2px; border-radius: 6px;" 
+                       data-choice-value="{{ choice.value }}"
+                       class="{% if choice.value == form.vars.value %}border border-primary{% endif %}">
+                    <img src="{{ path }}" alt="{{ choice.label }}" 
+                         style="border-radius: 4px; width: 32px; height: 32px; display: block;" />
                 </label>
             {% endfor %}
         </div>
         {{- form_help(form) -}}
         {{- form_errors(form) -}}
     </div>
+
+    <script>
+    (function() {
+        document.addEventListener('click', function(e) {
+            const label = e.target.closest('[data-choice-value]');
+            if (!label) return;
+            
+            e.preventDefault();
+            
+            const choiceValue = label.dataset.choiceValue;
+            const hiddenSelect = label.closest('.field').parentNode.querySelector('select');
+            
+            if (hiddenSelect) {
+                hiddenSelect.value = choiceValue;
+                
+                hiddenSelect.dispatchEvent(new Event('change', { bubbles: true }));
+                
+                label.closest('.field').querySelectorAll('[data-choice-value]').forEach(lbl => {
+                    lbl.classList.remove('border', 'border-primary');
+                });
+                label.classList.add('border', 'border-primary');
+            }
+        });
+    })();
+    </script>
 {%- endblock choice_row %}

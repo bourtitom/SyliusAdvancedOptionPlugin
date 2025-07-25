@@ -1,3 +1,9 @@
 {% form_theme option_form with ['@MonsieurBizSyliusAdvancedOptionPlugin/Form/small_images_theme.html.twig'] only %}
 
-{{ form_row(option_form, { 'option': option, 'attr': { 'data-option': option_form.vars.name } }) }}
+{{ form_row(option_form, { 
+    'option': option, 
+    'attr': { 
+        'data-option': option_form.vars.name,
+        'data-action': 'product#selectVariant'
+    } 
+}) }}
