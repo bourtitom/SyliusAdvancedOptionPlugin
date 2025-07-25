@@ -26,6 +26,10 @@ final class Version20201130230946 extends AbstractMigration
         return 'Add table for product option value image.';
     }
 
+    /**
+     * @SuppressWarnings(PHPMD.ShortMethodName)
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     */
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
@@ -33,6 +37,9 @@ final class Version20201130230946 extends AbstractMigration
         $this->addSql('ALTER TABLE monsieurbiz_product_option_value_image ADD CONSTRAINT FK_D512BD4A7E3C61F9 FOREIGN KEY (owner_id) REFERENCES sylius_product_option_value (id) ON DELETE CASCADE');
     }
 
+    /**
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     */
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs

@@ -26,11 +26,18 @@ final class Version20250115120000 extends AbstractMigration
         return 'Add position column to product option value image table.';
     }
 
+    /**
+     * @SuppressWarnings(PHPMD.ShortMethodName)
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     */
     public function up(Schema $schema): void
     {
         $this->addSql('ALTER TABLE monsieurbiz_product_option_value_image ADD position INT NOT NULL DEFAULT 0');
     }
 
+    /**
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     */
     public function down(Schema $schema): void
     {
         $this->addSql('ALTER TABLE monsieurbiz_product_option_value_image DROP position');
