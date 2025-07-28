@@ -17,4 +17,7 @@ use Sylius\Component\Core\Model\ImageInterface;
 
 interface ProductOptionValueImageInterface extends ImageInterface
 {
+    public function getPosition(): int;
+
+    public function setPosition(int $position): void;
 }

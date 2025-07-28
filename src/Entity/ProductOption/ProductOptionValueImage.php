@@ -17,4 +17,15 @@ use Sylius\Component\Core\Model\Image;
 
 class ProductOptionValueImage extends Image implements ProductOptionValueImageInterface
 {
+    protected int $position = 0;
+
+    public function getPosition(): int
+    {
+        return $this->position;
+    }
+
+    public function setPosition(int $position): void
+    {
+        $this->position = $position;
+    }
 }
