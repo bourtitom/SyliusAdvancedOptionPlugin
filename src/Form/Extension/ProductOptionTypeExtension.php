@@ -21,6 +21,9 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 final class ProductOptionTypeExtension extends AbstractTypeExtension
 {
+    /**
+     * @SuppressWarnings(PHPMD.UnusedPrivateField)
+     */
     private RendererSourceInterface $rendererSource;
 
     /**

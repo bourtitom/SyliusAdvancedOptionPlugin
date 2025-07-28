@@ -21,6 +21,9 @@ use Webmozart\Assert\Assert;
 
 final class ImagesUploadListener
 {
+    /**
+     * @SuppressWarnings(PHPMD.UnusedPrivateField)
+     */
     private ImageUploaderInterface $uploader;
 
     public function __construct(ImageUploaderInterface $uploader)

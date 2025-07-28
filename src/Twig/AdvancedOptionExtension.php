@@ -26,8 +26,14 @@ use Twig\TwigFunction;
 
 final class AdvancedOptionExtension extends AbstractExtension
 {
+    /**
+     * @SuppressWarnings(PHPMD.UnusedPrivateField)
+     */
     private Environment $twigEnvironment;
 
+    /**
+     * @SuppressWarnings(PHPMD.UnusedPrivateField)
+     */
     private RendererSourceInterface $rendererSource;
 
     /**

@@ -15,6 +15,9 @@ namespace MonsieurBiz\SyliusAdvancedOptionPlugin\Source;
 
 final class RendererSource implements RendererSourceInterface
 {
+    /**
+     * @SuppressWarnings(PHPMD.UnusedPrivateField)
+     */
     private array $renderers;
 
     /**
