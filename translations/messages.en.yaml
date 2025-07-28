@@ -6,3 +6,4 @@ monsieurbiz_advanced_option:
         renderers:
             small_images: 'Small images'
         add_image: 'Add Image'
+        remove_image: 'Remove Image'

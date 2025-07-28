@@ -16,9 +16,9 @@
             <div class="card-body">
                 <div id="images-container-{{ value_id }}" data-index="{{ form.images|length }}">
                     {% for imageForm in form.images %}
-                        <div class="image-item border p-3 mb-3 position-relative">
-                            <button type="button" class="btn btn-sm btn-outline-danger position-absolute top-0 end-0 m-2 remove-image-btn">
-                                X
+                        <div class="image-item border p-4 mb-3 position-relative">
+                            <button type="button" class="btn btn-outline-danger btn btn-outline-primary btn position-absolute top-0 end-0 m-2 remove-image-btn">
+                                {{ 'monsieurbiz_advanced_option.ui.remove_image'|trans }}
                             </button>
                             <div>
                                 {{ form_widget(imageForm) }}
@@ -28,9 +28,9 @@
                 </div>
                 
                 <div id="prototype-{{ value_id }}" style="display: none;">
-                    <div class="image-item border p-3 mb-3 position-relative">
-                        <button type="button" class="btn btn-sm btn-outline-danger position-absolute top-0 end-0 m-2 remove-image-btn">
-                            X
+                    <div class="image-item border p-4 mb-3 position-relative">
+                        <button type="button" class="btn btn-outline-danger btn btn-outline-primary btn position-absolute top-0 end-0 m-2 remove-image-btn">
+                            {{ 'monsieurbiz_advanced_option.ui.remove_image'|trans }}
                         </button>
                         {{ form_widget(form.images.vars.prototype)|raw }}
                     </div>
