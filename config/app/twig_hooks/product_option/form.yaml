@@ -4,7 +4,7 @@ sylius_twig_hooks:
       images_value:
         template: '@MonsieurBizSyliusAdvancedOptionPlugin/admin/product_option/sections/values/value/images.html.twig'
         priority: 50
-    'sylius_shop.product.show.content.info.summary.add_to_cart.options':
-      'list':
+    sylius_shop.product.show.content.info.summary.add_to_cart.options:
+      list:
         template: '@MonsieurBizSyliusAdvancedOptionPlugin/shop/product/show/content/info/summary/add_to_cart/options/list.html.twig'
         priority: 100
