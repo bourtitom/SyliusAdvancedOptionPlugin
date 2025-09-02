@@ -1,9 +1,5 @@
 sylius_twig_hooks:
   hooks:
-    sylius_admin.product_option.update.content.form.sections:
-      test_hook:
-        template: '@MonsieurBizSyliusAdvancedOptionPlugin/admin/product_option/sections/advanced_options.html.twig'
-        priority: 100
     sylius_admin.product_option.update.content.form.sections.values.value:
       images_value:
         template: '@MonsieurBizSyliusAdvancedOptionPlugin/admin/product_option/sections/values/value/images.html.twig'
