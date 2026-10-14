@@ -57,7 +57,7 @@ trait RenderedOptionValueTrait
 
     public function getImagesByType(string $type): Collection
     {
-        return $this->images->filter(function (ImageInterface $image) use ($type): bool {
+        return $this->images->filter(static function (ImageInterface $image) use ($type): bool {
             return $type === $image->getType();
         });
     }
