@@ -61,7 +61,7 @@ jobs:
       - name: Make sure to install the required version of Sylius
         working-directory: ./sylius
         run: |
-            composer require --no-install --no-scripts --no-progress sylius/sylius="${{ matrix.sylius }}"
+            composer require --no-install --no-scripts --no-progress sylius/sylius="${{ matrix.sylius }}" friendsofsymfony/rest-bundle="^3.8"
 
       - name: Setup some requirements
         working-directory: ./sylius
