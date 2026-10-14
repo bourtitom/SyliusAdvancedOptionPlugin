@@ -35,20 +35,16 @@ final class Configuration implements ConfigurationInterface
 
     private function addRenderers(ArrayNodeDefinition $rootNode): void
     {
-        /** @phpstan-ignore-next-line */
-        $rootNode
+        $rendererFields = $rootNode
             ->children()
                 ->arrayNode('renderers')
                     ->useAttributeAsKey('code', false)
                     ->defaultValue([])
                     ->arrayPrototype()
                         ->children()
-                            ->scalarNode('label')->isRequired()->cannotBeEmpty()->end()
-                            ->scalarNode('template')->isRequired()->cannotBeEmpty()->end()
-                        ->end()
-                    ->end()
-                ->end()
-            ->end()
         ;
+
+        $rendererFields->scalarNode('label')->isRequired()->cannotBeEmpty();
+        $rendererFields->scalarNode('template')->isRequired()->cannotBeEmpty();
     }
 }
